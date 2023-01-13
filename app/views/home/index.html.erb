@@ -3,18 +3,18 @@
     What do you want to learn today?
   </div>
   <div class="p-4"></div>
-  <div class="form-inline my-2 my-lg-0">
-    <%= form_tag(courses_path, method: :get) do %>
-      <div class="input-group">
-        <%= text_field_tag :title, params[:title], autocomplete: 'off', placeholder: "Search", class: 'form-control-sm' %>
-        <span class="input-group-append">
-          <button class="btn btn-primary btn-sm" type="submit">
-            <span aria-hidden="true" class="fa fa-search"></span>
-          </button>
-        </span>
-      </div>
-    <% end %>
-  </div>
+  <% if current_user %>
+<%= search_form_for @ransack_courses, as: :courses_search, url: courses_path do |f| %>
+  <%= f.search_field :title_cont, class: 'form-control-sm', style: 'float: left; width: 150px; ', placeholder: 'Find a course', :autocomplete => :off %>
+  <span class="input-group-append">
+    <button class="btn btn-primary btn-sm" type="submit">
+      <span aria-hidden="true" class="fa fa-search"></span>
+    </button>
+  </span>
+<% end %>
+
+<% end %>
+
 </div>
 <div class="card-group">
   <div class="card card-body">
@@ -78,7 +78,7 @@
   Latest courses
 </h2>
 <div class="card-columns">
-  <% @latest_couses.each do |course| %>
+  <% @latest_courses.each do |course| %>
     <%= render 'courses/course', course: course %>
   <% end %>
 </div>

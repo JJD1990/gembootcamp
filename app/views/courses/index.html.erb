@@ -1,8 +1,16 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Courses: <%= Course.count %></h1>
+<h3>
+  <div class="text-center">
+    Courses
+    <div class="badge badge-info">
+      <%= @courses.count %>
+    </div>
+  </div>
+</h3>
+<p></p>
 <div class="row">
-  <div class="col-md-2"></div>
+  <div class="col-md-2 pull-left">
  <%= search_form_for @ransack_courses, as: :courses_search, url: courses_path do |f| %>
     <div class="form-group">
       <%= f.label :title %>
@@ -31,7 +39,7 @@
     <%= f.submit %>
     <%= link_to 'refresh', courses_path %>
   <% end %>
-  
+  </div>
 </div>
 
   <div class="col-md-10">
