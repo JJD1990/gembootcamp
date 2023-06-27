@@ -13,6 +13,7 @@
  *= require_tree .
  *= require_self
  */
+ @import "actiontext.css";
  footer {
    color: white;
     background-color: black;
