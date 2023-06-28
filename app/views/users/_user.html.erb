@@ -36,4 +36,22 @@
     <%= user.last_sign_in_ip %>
     </b>
   </div>
+   <div class="card-footer">
+    e-mail confirmed:
+    <% if user.confirmed_at.present? %>
+    <div class="badge badge-success">Yes</div>
+    <% else %>
+    <div class="badge badge-danger">No</div>
+    <% end %>
+  </div>
+  <div class="card-footer">
+  <b>
+    <% user.roles.each do |role| %>
+    <div class="badge badge-info">
+      <%= role.name %>
+    </div>
+    <% end %>
+  </b>
+  <%= link_to 'Edit roles', edit_user_path(user), class: 'btn btn-sm btn-warning' %>
+  </div>
 </div>
