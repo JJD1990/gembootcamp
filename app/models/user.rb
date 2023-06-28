@@ -5,6 +5,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable, :trackable, :confirmable
   has_many :courses
 
+  extend FriendlyId
+  friendly_id :email, use: :slugged
+  
   rolify
   def to_s
     email
@@ -29,6 +32,10 @@ class User < ApplicationRecord
 
   validate :must_have_a_role, on: :update
 
+  def online?
+    updated_at > 2.minutes.ago
+  end
+  
   private
 
   def must_have_a_role
