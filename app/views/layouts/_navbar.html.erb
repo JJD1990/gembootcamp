@@ -30,7 +30,7 @@
             Users
           <% end %>
         </li>
-        <li class="<%= 'active fw-bold' if current_page?(enrollments_path) %> nav-item">
+        <li class="<%= 'active fw-bold' if current_page?(course_enrollments_path) %> nav-item">
         <%= link_to enrollments_path, class: 'nav-link' do %>
           <div class="fa fa-lock-open"></div>
             Enrollments

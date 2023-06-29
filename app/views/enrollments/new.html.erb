@@ -3,12 +3,18 @@ Corsego | New Enrollment
 <% end %>
 <div class="card mb-3 mt-3">
 <div class="card-header">
-<h1><div class="fa fa-lock-open"></div> New Enrollment</h1>
+<h1><div class="fa fa-graduation-cap"></div> Buy Course</h1>
+</div>
+<div class="card-header">
+<h1><div class="fa fa-lock-open"></div> Buy Course</h1>
 </div>
 <div class="card-body">
-<%= render 'form', enrollment: @enrollment %>
+<%= form_tag course_enrollments_path(@course) do %>
+
+<%= submit_tag "Pay #{@course.price}", class: 'btn btn-lg btn-success' %> 
+<% end %>
 </div>
 <div class="card-footer">
-<%= link_to 'Back', enrollments_path %>
+<%= link_to 'Back', course_path(@course) %>
 </div>
 </div>

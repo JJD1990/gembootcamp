@@ -1,20 +1,20 @@
 <footer>
   <div class="container-fluid">
-    <div class="row">
-      <div class="col-md-4">
-        Copyright © <%= Time.now.year %> CoursePlatform Sp. z o.o.
+    <div class="row justify-content-between">
+      <div class="col-md-3">
+        Copyright © <%= Time.now.year %> Corsego
         <div class="row">
-          <i class="fa fa-envelope"></i>
+        <i class="fa fa-envelope"></i>
           <%= mail_to 'email@email.com' %>
         </div>
       </div>
-      <div class="col-md-4">
+      <div class="col-md-3 text-center">
         Privacy policy <br>
         Terms and conditions
       </div>
-      <div class="col-md-4">
+      <div class="col-md-3 text-end">
         About us <br>
-        <%= link_to 'Teach on CoursePlatform', new_course_path %>
+        <%= link_to 'Teach on Corsego', new_course_path %>
       </div>
     </div>
   </div>

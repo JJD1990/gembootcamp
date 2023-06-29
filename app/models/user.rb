@@ -36,6 +36,10 @@ class User < ApplicationRecord
   def online?
     updated_at > 2.minutes.ago
   end
+
+  def buy_course(course)
+    self.enrollments.create(course: course, price: course.price)
+  end
   
   private
 
@@ -44,4 +48,5 @@ class User < ApplicationRecord
       errors.add(:roles, "User must have atleast one role")
     end  
   end  
+
 end
