@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Rubygembootcamp</title>
+    <title><%= content_for?(:title) ? yield(:title) : "Corsego" %></title>
     <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <meta name="viewport" content="width=device-width,initial-scale=1">

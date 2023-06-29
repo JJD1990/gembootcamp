@@ -1,3 +1,6 @@
+<% content_for :title do %>
+Corsego | All Users
+<% end %>
 <h3>
   <div class="text-center">
     Users
@@ -42,7 +45,11 @@
     <% @users.each do |user| %>
       <tr>
         <td><%= user.id %></td>
-        <td><%= user.email %></td>
+        <td><% if user.online? %>
+         <div class="text-success fa fa-circle"></div>
+         <% else %>
+        <div class="text-danger fa fa-circle"></div>
+         <% end %><%= link_to user.email, user_path(user) %></td>
         <td><%= user.created_at %></td>
         <td><%= user.sign_in_count %></td>
         <td><%= user.current_sign_in_at %></td>
