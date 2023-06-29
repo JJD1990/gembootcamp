@@ -18,17 +18,23 @@
             Courses
           <% end %>
         </li>
+        <li class="<%= 'active font-weight-bold' if current_page?(new_course_path) %> nav-item">
+          <%= link_to new_course_path, class: 'nav-link' do %>
+            <div class="fa fa-plus"></div>
+              New Course
+          <% end %>
+        </li>
          <li class="<%= 'active fw-bold' if current_page?(users_path) %> nav-item">
           <%= link_to users_path, class: 'nav-link' do %>
             <div class="fa fa-users"></div>
             Users
           <% end %>
         </li>
-        <li class="<%= 'active font-weight-bold' if current_page?(new_course_path) %> nav-item">
-  <%= link_to new_course_path, class: 'nav-link' do %>
-    <div class="fa fa-plus"></div>
-    New Course
-  <% end %>
+        <li class="<%= 'active fw-bold' if current_page?(enrollments_path) %> nav-item">
+        <%= link_to enrollments_path, class: 'nav-link' do %>
+          <div class="fa fa-lock-open"></div>
+            Enrollments
+        <% end %>
         </li>
       </ul>
       <div class="form-inline my-2 my-lg-0">

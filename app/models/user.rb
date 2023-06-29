@@ -4,6 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :trackable, :confirmable
   has_many :courses
+  has_many :enrollments
 
   extend FriendlyId
   friendly_id :email, use: :slugged
