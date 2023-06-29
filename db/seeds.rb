@@ -1,4 +1,12 @@
 # User.create!(email: 'admin@admin.com', password: 'password', password_confirmation: 'password')
+user = User.new(
+  email: 'admin@admin.com', 
+  password: 'password', 
+  password_confirmation: 'password'
+)
+user.skip_confirmation!
+user.save!
+
 30.times do
   Course.create!({
     title: Faker::Educator.course_name,
