@@ -7,6 +7,11 @@ class Enrollment < ApplicationRecord
   validates_uniqueness_of :user_id, scope: :course_id # user can enroll only once
   validates_uniqueness_of :course_id, scope: :user_id 
 
+  def to_s
+    user.to_s + " " + course.to_s
+  end  
+
+  protected
   #user cannot enroll in own course
   validate :cant_subscribe_to_own_course
 
