@@ -1,8 +1,8 @@
 <%= link_to 'Courses', courses_path %>
-\/
+\
 <%= link_to @course.title, course_path(@course) %>
 <p></p>
-<div class="row">
+<div class="row mt-3">
 <div class="col-lg-6">
 <%= render 'courses/course', course: @course %>
 </div>
