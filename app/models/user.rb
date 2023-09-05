@@ -27,7 +27,7 @@ class User < ApplicationRecord
       self.add_role(:student)
     else
       self.add_role(:student) if self.roles.blank?
-      self.add_role(:teacher)
+      # self.add_role(:teacher)
     end  
   end  
 
@@ -40,7 +40,7 @@ class User < ApplicationRecord
   def buy_course(course)
     self.enrollments.create(course: course, price: course.price)
   end
-  
+
   private
 
   def must_have_a_role
