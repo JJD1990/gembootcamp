@@ -1,0 +1,4 @@
+fileignoreconfig:
+- filename: app/views/enrollments/edit.html.erb
+  checksum: ae14f19731771a5822fa36a3e97b55f05f0cf58615b456671433621973e5200e
+version: "1.0"
