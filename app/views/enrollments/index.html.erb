@@ -3,9 +3,10 @@ Corsego | All Enrollments
 <% end %>
 
 <h3 class= "text-center">Enrollments <div class="badge badge-info"><%= @enrollments.count %></div></h3>
-<div class="form-inline">
+<div>
   <%= search_form_for @q do |f| %>
     <%= f.search_field :review_cont, placeholder: 'review contains' %>
+    <%= f.search_field :rating_eq, placeholder: 'rating contains' %>
     <%= f.submit %>
   <% end %>
   <div class="ml-2"></div>
@@ -16,12 +17,12 @@ Corsego | All Enrollments
   <thead>
     <tr>
       <th>ID</th>
-      <th>User</th>
-      <th>Bought</th>
-      <th>Course</th>
-      <th>Price</th>
-      <th>Reviewed on</th>
-      <th>Rating</th>
+      <th><%= sort_link(@q, :user_email) %></th>
+      <th><%= sort_link(@q, :created_at) %></th>
+      <th><%= sort_link(@q, :course_title) %></th>
+      <th><%= sort_link(@q, :price) %></th>
+      <th><%= sort_link(@q, :updated_at) %></th>
+      <th><%= sort_link(@q, :rating) %></th>
       <th>Review</th>
       <th></th>
       <th></th>
