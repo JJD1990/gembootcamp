@@ -3,6 +3,14 @@ Corsego | All Enrollments
 <% end %>
 
 <h3 class= "text-center">Enrollments <div class="badge badge-info"><%= @enrollments.count %></div></h3>
+<div class="form-inline">
+  <%= search_form_for @q do |f| %>
+    <%= f.search_field :review_cont, placeholder: 'review contains' %>
+    <%= f.submit %>
+  <% end %>
+  <div class="ml-2"></div>
+  <%= link_to 'refresh', enrollments_path %>
+</div>
 <div class="table-responsive">
 <table class="table table-bordered table-striped table-sm">
   <thead>
@@ -45,9 +53,5 @@ Corsego | All Enrollments
     <% end %>
   </tbody>
 </table>
-
+<%== pagy_bootstrap_nav(@pagy)%>
 </div>
-
-<br>
-
-<%= link_to 'New Enrollment', new_enrollment_path %>

@@ -1,4 +1,6 @@
 fileignoreconfig:
 - filename: app/views/enrollments/edit.html.erb
   checksum: ae14f19731771a5822fa36a3e97b55f05f0cf58615b456671433621973e5200e
+- filename: db/schema.rb
+  checksum: 78579aeb95169c7c049b85772d1564cae0d9721412110e7681a86c18323164a8
 version: "1.0"

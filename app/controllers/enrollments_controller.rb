@@ -4,7 +4,8 @@ class EnrollmentsController < ApplicationController
 
   # GET /enrollments or /enrollments.json
   def index
-    @enrollments = Enrollment.all
+    @q = Enrollment.ransack(params[:q])
+    @pagy, @enrollments = pagy(@q.result(distinct: true))
     authorize @enrollments
   end
 
@@ -60,7 +61,7 @@ class EnrollmentsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_enrollment
-      @enrollment = Enrollment.find(params[:id])
+      @enrollment = Enrollment.friendly.find(params[:id])
     end
 
     def set_course
