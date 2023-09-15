@@ -18,24 +18,88 @@
             Courses
           <% end %>
         </li>
-        <li class="<%= 'active font-weight-bold' if current_page?(new_course_path) %> nav-item">
-          <%= link_to new_course_path, class: 'nav-link' do %>
+    <% if current_user.has_role?(:admin) %>
+          <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+           Admin
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <%= link_to users_path, class: 'dropdown-item' do %>
+              <div class="fa fa-users"></div>
+              Users
+               <div class="badge badge-danger">
+                <%= User.count %>
+              </div>
+            <% end %>
+             <%= link_to enrollments_path, class: 'dropdown-item' do %>
+              <div class="fa fa-lock-open"></div>
+                Enrollments
+                <div class="badge badge-danger">
+                <%= Enrollment.count %>
+              </div>
+             <% end %>
+            <li><hr class="dropdown-divider"></li>
+            <%= link_to activity_path, class: 'dropdown-item' do %>
+              <div class="fa fa-bell"></div>
+                Activity
+            <% end %>
+          </ul>
+        </li>
+        <% end %>
+        <% if current_user.has_role?(:Teacher) %>
+          <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+           Teach
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <%= link_to new_course_path, class: 'dropdown-item' do %>
             <div class="fa fa-plus"></div>
               New Course
           <% end %>
-        </li>
-         <li class="<%= 'active fw-bold' if current_page?(users_path) %> nav-item">
-          <%= link_to users_path, class: 'nav-link' do %>
-            <div class="fa fa-users"></div>
-            Users
+          <%= link_to created_courses_path, class: 'dropdown-item' do %>
+            <div class="fa fa-graduation-cap"></div>
+              My Created Courses
+               <div class="badge badge-danger">
+                <%= current_user.courses.count %>
+              </div>
           <% end %>
+          <%= link_to my_students_enrollments_path, class: 'dropdown-item' do %>
+            <div class="fa fa-users"></div>
+              My Students
+              <div class="badge badge-danger">
+                <%= Enrollment.joins(:course).where(courses: {user: current_user}).count %>
+              </div>
+          <% end %>
+          </ul>
         </li>
-        <li class="<%= 'active fw-bold' if current_page?(enrollments_path) %> nav-item">
-        <%= link_to enrollments_path, class: 'nav-link' do %>
-          <div class="fa fa-lock-open"></div>
-            Enrollments
         <% end %>
-        </li>
+     <% if current_user.has_role?(:student) %>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Learn
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <li>
+            <%= link_to purchased_courses_path, class: 'dropdown-item' do %>
+              <div class="fa fa-graduation-cap"></div>
+              Purchased Courses
+              <div class="badge badge-danger">
+                <%= current_user.enrollments.count %>
+              </div>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to pending_review_courses_path, class: 'dropdown-item' do %>
+              <div class="fa fa-star"></div>
+              Pending Review
+               <div class="badge badge-danger">
+                <%= current_user.enrollments.pending_review.count %>
+              </div>
+            <% end %>
+          </li>
+        </ul>
+      </li>
+    <% end %>
       </ul>
       <div class="form-inline my-2 my-lg-0">
         <%= search_form_for @ransack_courses, as: :courses_search, url: courses_path do |f| %>
@@ -50,14 +114,7 @@
           </div>
         <% end %>
       </div>
-      <ul class="navbar-nav me-right">
-        <li class="<%= 'active font-weight-bold' if current_page?(home_activity_path) %> nav-item">
-  <%= link_to home_activity_path, class: 'nav-link' do %>
-    <div class="fa fa-bell"></div>
-    Activity
-  <% end %>
-</li>
-
+      <ul class="navbar-nav me-right"> 
         <li class="nav-item dropdown">
           <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" id="navbarDropdown" role="button">
             <b>

@@ -1,4 +1,6 @@
 fileignoreconfig:
+- filename: app/controllers/courses_controller.rb
+  checksum: 01264d03f24c0b911a53b191669ca9386f3c324a6978fffa8c29940bd74ad091
 - filename: app/views/enrollments/edit.html.erb
   checksum: ae14f19731771a5822fa36a3e97b55f05f0cf58615b456671433621973e5200e
 - filename: db/schema.rb
