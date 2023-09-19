@@ -31,9 +31,17 @@
             </div>
           </div>
         </div>
-        <div class="card-footer">
-          <div class="fa fa-tasks"></div>
-            <%= course.lessons.count %>
+         <div class="card-footer">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="fa fa-tasks"></div>
+              <%= course.lessons.count  %>
+            </div>
+            <div class="col-md-6 text-right">
+              <div class="text-warning fa fa-star"></div>
+              <%= course.average_rating %>
+            </div>
+          </div>
         </div>
         <div class="card-footer">
           <div class="row">
