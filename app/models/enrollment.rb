@@ -1,5 +1,6 @@
 class Enrollment < ApplicationRecord
-  belongs_to :course
+  belongs_to :course, counter_cache: true
+  # Course.find_each { |course| Course.reset_counters(course.id, :enrollments) } to reset cache_counter
   belongs_to :user
 
   validates :user, :course, presence: true
@@ -28,6 +29,8 @@ class Enrollment < ApplicationRecord
   after_destroy do
     course.update_rating
   end
+
+
 
   protected
   #user cannot enroll in own course

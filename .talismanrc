@@ -3,6 +3,8 @@ fileignoreconfig:
   checksum: 01264d03f24c0b911a53b191669ca9386f3c324a6978fffa8c29940bd74ad091
 - filename: app/views/enrollments/edit.html.erb
   checksum: ae14f19731771a5822fa36a3e97b55f05f0cf58615b456671433621973e5200e
+- filename: config/database.yml
+  checksum: 50e90b84d45577da7a32ed8b73c25abc287ae393f1550f807ee2a4fe6f190a47
 - filename: db/schema.rb
-  checksum: ed6ca3bbe2f1e53b4bd8445e9a440b04daa3834e446769c2ec6b6d54180f3d74
+  checksum: ee36c2d0c29581d6ebb038059bdf903dd68b413b4c962b44e6371e98c58a396f
 version: "1.0"
