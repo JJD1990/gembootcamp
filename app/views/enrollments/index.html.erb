@@ -1,8 +1,12 @@
 <% content_for :title do %>
-Corsego | All Enrollments
+Corsego | 
+<%= action_name.humanize %>
+Enrollments
 <% end %>
 
-<h3 class= "text-center">Enrollments <div class="badge badge-info"><%= @enrollments.count %></div></h3>
+<h3 class= "text-center"> 
+  <%= action_name.humanize %>
+  Enrollments <div class="badge badge-info"><%= @enrollments.count %></div></h3>
 <div>
   <%= search_form_for @q, url: @ransack_path do |f| %>
     <%= f.search_field :review_cont, placeholder: 'review contains' %>

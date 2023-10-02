@@ -1,8 +1,11 @@
 <% content_for :title do %>
-Corsego | All Courses
+Corsego |
+<%= action_name.humanize %>
+ Courses
 <% end %>
 <h3>
   <div class="text-center">
+    <%= action_name.humanize %>
     Courses
     <div class="badge badge-info">
       <%= @courses.count %>
