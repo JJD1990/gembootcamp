@@ -6,5 +6,5 @@ fileignoreconfig:
 - filename: config/database.yml
   checksum: 50e90b84d45577da7a32ed8b73c25abc287ae393f1550f807ee2a4fe6f190a47
 - filename: db/schema.rb
-  checksum: ee36c2d0c29581d6ebb038059bdf903dd68b413b4c962b44e6371e98c58a396f
+  checksum: 34f288c47e5bc59b3e1e4d36f5c5b19e49ba4e2ce5ff98b4c413ad62bbeef0cc
 version: "1.0"

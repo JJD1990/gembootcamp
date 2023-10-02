@@ -42,6 +42,12 @@
     </b>
   </div>
    <div class="card-footer">
+    Courses Created:
+    <%= user.courses_count %> |
+     Enrollments:
+    <%= user.enrollments_count %>
+  </div>
+   <div class="card-footer">
     e-mail confirmed:
     <% if user.confirmed_at.present? %>
     <div class="badge badge-success">Yes</div>
