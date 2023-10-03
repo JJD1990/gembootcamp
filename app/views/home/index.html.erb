@@ -1,5 +1,7 @@
 <% content_for :title do %>
-Corsego | Online Courses - Learn Anything, On Your Schedule
+  Corsego 
+  \| 
+  Online Courses - Learn Anything, On Your Schedule
 <% end %>
 <div class="jumbotron">
   <div class="display-4">
@@ -7,17 +9,17 @@ Corsego | Online Courses - Learn Anything, On Your Schedule
   </div>
   <div class="p-4"></div>
   <% if current_user %>
-<%= search_form_for @ransack_courses, as: :courses_search, url: courses_path do |f| %>
-  <%= f.search_field :title_cont, class: 'form-control-sm', style: 'float: left; width: 150px; ', placeholder: 'Find a course', :autocomplete => :off %>
-  <span class="input-group-append">
-    <button class="btn btn-primary btn-sm" type="submit">
-      <span aria-hidden="true" class="fa fa-search"></span>
-    </button>
-  </span>
-<% end %>
-
-<% end %>
-
+    <%= search_form_for @ransack_courses, as: :courses_search, url: courses_path do |f| %>
+      <div class="input-group">
+        <%= f.search_field :title_cont, class: 'form-control-sm', style: 'float: left; width: 150px; ', placeholder: 'Find a course', :autocomplete => :off %>
+        <span class="input-group-append">
+          <button class="btn btn-primary btn-sm" type="submit">
+            <span aria-hidden="true" class="fa fa-search"></span>
+          </button>
+        </span>
+      </div>
+    <% end %>
+  <% end %>
 </div>
 <div class="card-group">
   <div class="card card-body">
@@ -32,8 +34,6 @@ Corsego | Online Courses - Learn Anything, On Your Schedule
   <div class="card card-body">
     <h1>
       <div class="fa fa-chalkboard-teacher"></div>
-      <!--.fa.fa-brain
-      -->
     </h1>
     <%= Course.distinct.count(:user_id) %>
     expert instructors
@@ -58,31 +58,53 @@ Corsego | Online Courses - Learn Anything, On Your Schedule
     Learn on your schedule
   </div>
 </div>
+<p></p>
+<h2>
+  <div class="fa fa-user-graduate"></div>
+  Continue Learning
+</h2>
+<div class="card-columns">
+  <% @purchased_courses.each do |course| %>
+    <%= render 'courses/course', course: course %>
+  <% end %>
+</div>
 <hr/>
 <h2>
+  <div class="fa fa-chart-line"></div>
   Popular courses
 </h2>
 <div class="card-columns">
-  <% @courses.each do |course| %>
+  <% @popular.each do |course| %>
     <%= render 'courses/course', course: course %>
   <% end %>
 </div>
 <hr/>
 <h2>
+  <div class="fa fa-star"></div>
   Top rated courses
 </h2>
 <div class="card-columns">
-  <% @courses.each do |course| %>
+  <% @top_rated.each do |course| %>
     <%= render 'courses/course', course: course %>
   <% end %>
 </div>
 <hr/>
 <h2>
+  <div class="fa fa-clock"></div>
   Latest courses
 </h2>
 <div class="card-columns">
-  <% @latest_courses.each do |course| %>
+  <% @latest.each do |course| %>
     <%= render 'courses/course', course: course %>
   <% end %>
 </div>
 <hr/>
+<h2>
+  <div class="fa fa-comment"></div>
+  What our students have to say
+</h2>
+<div class="card-columns">
+  <% @latest_good_reviews.each do |enrollment| %>
+    <%= render 'enrollments/enrollment', enrollment: enrollment %>
+  <% end %>
+</div>

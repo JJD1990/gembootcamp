@@ -22,12 +22,6 @@
         <b>
           <%= course.average_rating %>
         </b>
-        <!--Enrollments count:
-        -->
-        <!--= course.enrollments.count
-        -->
-        <!--Counter cache enrollments count:
-        -->
         (
         <div class="fa fa-user-graduate"></div>
         <%= course.enrollments_count %>
@@ -43,50 +37,10 @@
       </div>
     </div>
   </div>
-  <!--.card-footer
-  -->
-  <!--  .row
-  -->
-  <!--    .col-md-6
-  -->
-  <!--      .fa.fa-globe-africa
-  -->
-  <!--      = course.language
-  -->
-  <!--    .col-md-6
-  -->
-  <!--      .text-right
-  -->
-  <!--        .fa.fa-signal
-  -->
-  <!--        = course.level
-  -->
-  <!--.card-footer
-  -->
-  <!--  .row
-  -->
-  <!--    .col-md-6
-  -->
-  <!--      .far.fa-clock
-  -->
-  <!--      = course.created_at.strftime('%d-%b-%Y')
-  -->
-  <!--    .col-md-6
-  -->
-  <!--      .text-right
-  -->
-  <!--        .fa.fa-chalkboard-teacher
-  -->
-  <!--        = link_to course.user.username, user_path(course.user)
-  -->
   <% if current_user %>
     <% if policy(course).edit? %>
       <div class="card-footer">
-        <!--- if policy(course).edit?
-        -->
         <%= link_to 'Edit', edit_course_path(course), class: 'btn btn-sm btn-warning' %>
-        <!--- if policy(course).destroy?
-        -->
         <%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger' %>
       </div>
     <% end %>
