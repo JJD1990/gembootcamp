@@ -1,12 +1,22 @@
-<div class="card mb-3 mt-3">
-    <div class="card-header"><div class="fa fa-check-square"></div><%= link_to lesson.title, course_lesson_path(@course, lesson) %></div>
-    <% if policy(lesson).show? %>
-    <div class="card-body"><%= lesson.content%></div>  
+<div class="card">
+  <div class="card-header">
+    <% if lesson.viewed(current_user) == true %>
+      <div class="text-success far fa-check-square"></div>
+    <% else %>
+      <div class="text-danger far fa-check-square"></div>
     <% end %>
-    <% if policy(lesson).edit? %>
-    <div class="card-footer">
-          <%= link_to 'Edit', edit_course_lesson_path(@course, lesson), class: 'btn btn-sm btn-warning' %>
-          <%= link_to 'Destroy', [@course, lesson], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger' %>
+    <%= link_to lesson.title, course_lesson_path(@course, lesson) %>
+  </div>
+  <% if policy(lesson).show? %>
+    <div class="card-body">
+      <%= lesson.content %>
     </div>
-    <% end %>
+  <% end %>
+  <% if policy(lesson).edit? %>
+    <div class="card-footer">
+      <%= link_to 'Edit', edit_course_lesson_path(@course, lesson), class: 'btn btn-sm btn-warning' %>
+      <%= link_to 'Destroy', [@course, lesson], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger' %>
+    </div>
+  <% end %>
 </div>
+<p></p>
