@@ -9,7 +9,8 @@ class Course < ApplicationRecord
   belongs_to :user, counter_cache: true
   # User.find_each { |user| User.reset_counters(user.id, :courses) } to reset cache_counter
   has_many :lessons, dependent: :destroy
-  has_many :enrollments
+  has_many :enrollments, dependent: :restrict_with_error
+  has_many :user_lessons, through: :lessons
 
   scope :latest, -> { limit(3).order(created_at: :desc) }
   scope :top_rated, -> { limit(3).order(average_rating: :desc, created_at: :desc) }
@@ -34,6 +35,12 @@ class Course < ApplicationRecord
   end
 
   tracked owner: Proc.new{ |controller, model| controller.current_user }
+
+  def progress(user)
+    unless self.lessons_count.zero?
+      user_lessons.where(user: user).count/self.lessons_count.to_f*100
+    end
+  end
 
   def bought(user)
     self.enrollments.where(user_id: [user.id], course_id: [self.id]).empty?

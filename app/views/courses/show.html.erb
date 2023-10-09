@@ -1,20 +1,61 @@
 <% content_for :title do %>
-Corsego | <%= @course.title %>
+  Corsego 
+  \/ 
+  <%= @course.title %>
 <% end %>
 <%= link_to 'Courses', courses_path %>
-\
+\/
 <%= link_to @course.title, course_path(@course) %>
 <p></p>
-<div class="row mt-3">
-<div class="col-lg-6">
-<%= render 'courses/course', course: @course %>
-</div>
-<div class="col-lg-6">
-    <% if policy(@course).owner? %>
-        <%= link_to 'Add Lesson', new_course_lesson_path(@course, @lesson), class: 'btn btn-primary btn-block text-white mb-3' %>         
+<div class="row">
+  <div class="col-lg-8 order-1 order-lg-1">
+    <div class="jumbotron">
+      <h3>
+        <div class="fa fa-graduation-cap"></div>
+        <%= @course.title %>
+      </h3>
+      <div class="p-3"></div>
+      <div class="row"></div>
+      <div class="fa fa-clock"></div>
+      <%= @course.updated_at.strftime("%m/%Y") %>
+      <div class="row"></div>
+      <div class="fa fa-globe-africa"></div>
+      <%= @course.language %>
+      <div class="row"></div>
+      <div class="fa fa-signal"></div>
+      <%= @course.level %>
+      <div class="p-3"></div>
+      <%= @course.description %>
+    </div>
+    <h4>
+      <div class="fa fa-tasks"></div>
+      <%= pluralize(@course.lessons_count, 'lesson') %>
+      <div class="float-right">
+        <div class="fa fa-spinner"></div>
+        <%= number_to_percentage(@course.progress(current_user), precision: 0) %>
+      </div>
+    </h4>
+    <ul class="list-group">
+      <% @lessons.each do |lesson| %>
+      <li class="list-group-item">
+        <%= render 'lessons/lesson_preview', lesson: lesson %>
+      </li>
+      <% end %>
+    </ul>
+    <p></p>
+    <h4>
+      <div class="fa fa-comment"></div>
+      <%= pluralize(@enrollments_with_review.count, 'review') %>
+    </h4>
+    <% @enrollments_with_review.each do |enrollment| %>
+      <%= render 'enrollments/enrollment', enrollment: enrollment %>
+      <p></p>
     <% end %>
-<% @lessons.each do |lesson| %>
-<%= render 'lessons/lesson', lesson: lesson %>
-<% end %>
-</div>
+  </div>
+  <div class="col-lg-4 order-0 order-lg-1">
+    <div class="sticky-top">
+      <%= render 'courses/course', course: @course %>
+    </div>
+    <p></p>
+  </div>
 </div>
