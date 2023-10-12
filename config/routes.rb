@@ -12,6 +12,12 @@ Rails.application.routes.draw do
   root 'home#index'
     get 'activity', to: 'home#activity'
     get 'analytics', to: 'home#analytics'
+    namespace :charts do
+      get 'users_per_day'
+      get 'enrollments_per_day'
+      get 'course_popularity'
+      get 'money_makers'
+    end
 
   # get 'static_pages/privacy_policy'
   get 'privacy_policy', to: 'home#privacy_policy'

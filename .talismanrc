@@ -6,7 +6,7 @@ fileignoreconfig:
 - filename: config/database.yml
   checksum: 50e90b84d45577da7a32ed8b73c25abc287ae393f1550f807ee2a4fe6f190a47
 - filename: db/schema.rb
-  checksum: 4a4351e4e46c3638639e67fb99fc8b9e2dab25da36e3478d2ec4c4864aa37cd1
+  checksum: d8a7f8d892687e0ed790264dc64760ecdd09098d2a0eda899894dc7749d1e790
 - filename: yarn.lock
   checksum: 190b6415f2e52ca7db3314779844f98ff4cced9f63f7c047f6541ec2b5779d60
 version: "1.0"
