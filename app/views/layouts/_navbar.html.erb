@@ -31,6 +31,13 @@
                 <%= User.count %>
               </div>
             <% end %>
+              <%= link_to unapproved_courses_path, class: 'dropdown-item' do %>
+              <div class="fa fa-graduation-cap"></div>
+              Unapproved Courses
+               <div class="badge badge-danger">
+                <%= Course.unapproved.count %>
+              </div>
+            <% end %>
              <%= link_to enrollments_path, class: 'dropdown-item' do %>
               <div class="fa fa-lock-open"></div>
                 Enrollments
