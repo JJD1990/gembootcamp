@@ -11,7 +11,7 @@ class LessonPolicy < ApplicationPolicy
     end    
 
     def edit?
-      @record.course.user.id == @user.id
+     @user.present? && @record.course.user.id == @user.id
     end  
   
     def update?

@@ -59,16 +59,18 @@
   </div>
 </div>
 <p></p>
-<h2>
-  <div class="fa fa-user-graduate"></div>
-  Continue Learning
-</h2>
-<div class="card-columns">
-  <% @purchased_courses.each do |course| %>
-    <%= render 'courses/course', course: course %>
-  <% end %>
-</div>
+<% if current_user %>
+  <h2>
+    <div class="fa fa-user-graduate"></div>
+    Continue Learning
+  </h2>
+  <div class="card-columns">
+    <% @purchased_courses.each do |course| %>
+      <%= render 'courses/course', course: course %>
+    <% end %>
+  </div>
 <hr/>
+<% end %>
 <h2>
   <div class="fa fa-chart-line"></div>
   Popular courses
