@@ -69,6 +69,9 @@
       <%= render 'courses/course', course: course %>
     <% end %>
   </div>
+    <div class="text-right">
+      <%= link_to 'All my purchased courses', purchased_courses_path %>
+    </div>
 <hr/>
 <% end %>
 <h2>
@@ -80,6 +83,9 @@
     <%= render 'courses/course', course: course %>
   <% end %>
 </div>
+  <div class="text-right">
+    <%= link_to 'More popular courses', courses_path(courses_search: {s: 'enrollments_count desc'}) %>
+  </div>
 <hr/>
 <h2>
   <div class="fa fa-star"></div>
@@ -90,6 +96,9 @@
     <%= render 'courses/course', course: course %>
   <% end %>
 </div>
+  <div class="text-right">
+    <%= link_to 'Best rated courses', courses_path(courses_search: {s: 'average_rating desc'}) %>
+  </div>
 <hr/>
 <h2>
   <div class="fa fa-clock"></div>
@@ -100,6 +109,9 @@
     <%= render 'courses/course', course: course %>
   <% end %>
 </div>
+ <div class="text-right">
+    <%= link_to 'More latest courses', courses_path(courses_search: {s: 'created_at desc'}) %>
+  </div>
 <hr/>
 <h2>
   <div class="fa fa-comment"></div>

@@ -67,3 +67,4 @@ gem "pagy"
 gem "chartkick", "~> 5.0"
 gem "groupdate"
 gem 'rails-erd', group: :development 
+gem "ranked-model", "~> 0.4.9"

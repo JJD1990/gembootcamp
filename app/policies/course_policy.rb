@@ -30,7 +30,8 @@ class CoursePolicy < ApplicationPolicy
   end  
 
   def destroy?
-    @user.has_role? :admin || @record.user == @user
+    # @user.has_role? :admin || @record.user == @user
+    @record.user == @user && @record.enrollments.none?
   end
 
   def owner?
@@ -39,6 +40,10 @@ class CoursePolicy < ApplicationPolicy
 
   def approve?
     @user.has_role?(:admin)
+  end
+
+  def admin_or_owner?
+    @user.has_role?(:admin) || @record.user == @user
   end
 
 end
