@@ -24,7 +24,7 @@ import "chartkick/chart.js"
 
 import("jquery")
 import 'jquery-ui-dist/jquery-ui';
-
+import "../trix-editor-overrides"
 
 $(document).on('turbolinks:load', function(){
     $('.lesson-sortable').sortable({

@@ -68,3 +68,7 @@ gem "chartkick", "~> 5.0"
 gem "groupdate"
 gem 'rails-erd', group: :development 
 gem "ranked-model", "~> 0.4.9"
+gem "aws-sdk-s3", require: false
+gem 'dotenv-rails', groups: [:development, :test]
+gem 'active_storage_validations'
+gem 'image_processing'

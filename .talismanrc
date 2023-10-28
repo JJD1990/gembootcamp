@@ -1,12 +1,4 @@
 fileignoreconfig:
-- filename: app/controllers/courses_controller.rb
-  checksum: 8f2f813163d95293c629e9f9dad19b4cb0628a3e5762911b5ce0068b3bf8e9f8
-- filename: app/views/enrollments/edit.html.erb
-  checksum: ae14f19731771a5822fa36a3e97b55f05f0cf58615b456671433621973e5200e
-- filename: config/database.yml
-  checksum: 50e90b84d45577da7a32ed8b73c25abc287ae393f1550f807ee2a4fe6f190a47
-- filename: db/schema.rb
-  checksum: e5633117d0d8b305e05d2e426a22f8ae0a84746d3ed0cd35a5ec83956809ceb1
-- filename: yarn.lock
-  checksum: 86a3c36c6d5ad704ff8d11812c7df2fb2071548489b03875bd553f338f0cc50f
+- filename: config/storage.yml
+  checksum: 2ec3e416e9edc5c96d13fa4ef881bb3ebe6916aec00efc60597548eb78894e5b
 version: "1.0"
