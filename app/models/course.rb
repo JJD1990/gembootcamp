@@ -6,11 +6,14 @@ class Course < ApplicationRecord
   validates :title, :short_description, :language, :price, :level,  presence: true
   validates :description, presence: true, length: { :minimum => 5 }
   validates :title, uniqueness: true
+  validates :avatar, attached: true, content_type: ['image/png', 'image/jpeg', 'image/jpg'], size: {less_than: 500.kilobytes, message: 'Must be less than 500 Kilobytes'}
   belongs_to :user, counter_cache: true
   # User.find_each { |user| User.reset_counters(user.id, :courses) } to reset cache_counter
   has_many :lessons, dependent: :destroy
   has_many :enrollments, dependent: :restrict_with_error
   has_many :user_lessons, through: :lessons
+
+  has_one_attached :avatar
 
   scope :latest, -> { limit(3).order(created_at: :desc) }
   scope :top_rated, -> { limit(3).order(average_rating: :desc, created_at: :desc) }

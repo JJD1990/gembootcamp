@@ -11,6 +11,13 @@
     <%# f.association :course %>
     <%# f.input :course_id, input_html: {value: @lesson.course_id || params[:course_id]}, as: :hidden %>
   </div>
+  <% if @lesson.errors.any? %>
+  <ul>
+    <% @lesson.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
 
   <div class="form-actions mt-3">
     <%= f.button :submit %>
