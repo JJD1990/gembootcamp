@@ -5,6 +5,8 @@ class Lesson < ApplicationRecord
   has_many :user_lessons, dependent: :destroy
   # Course.find_each { |course| Course.reset_counters(course.id, :lessons) } to reset cache_counter
   validates :title, :content, :course, presence: true
+  validates :title, uniqueness: true, length: { :maximum => 50 }
+
 
   has_rich_text :content
 

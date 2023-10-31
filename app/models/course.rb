@@ -5,7 +5,9 @@ class Course < ApplicationRecord
 
   validates :title, :short_description, :language, :price, :level,  presence: true
   validates :description, presence: true, length: { :minimum => 5 }
-  validates :title, uniqueness: true
+  validates :title, uniqueness: true, length: { :maximum => 50 }
+  validates :price, numericality: { greater_than_or_equal_to: 0}
+  validates :avatar, presence: true
   validates :avatar, attached: true, content_type: ['image/png', 'image/jpeg', 'image/jpg'], size: {less_than: 500.kilobytes, message: 'Must be less than 500 Kilobytes'}
   belongs_to :user, counter_cache: true
   # User.find_each { |user| User.reset_counters(user.id, :courses) } to reset cache_counter

@@ -8,10 +8,9 @@
     <% if @course.avatar.attached? %>
         <%= image_tag @course.avatar, width: '200', height: '200' %>
      <% end %>
-    <%= f.file_field :avatar %>
+    <%= f.input :avatar %>
     <div class="row"></div>
     <%= @course.avatar.filename %>
-    <%= f.error :avatar, class: 'text-danger' %>
     <div class="row">
     <%= f.label :description %>
     </div>
