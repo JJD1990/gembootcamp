@@ -7,6 +7,7 @@
   Lesson
   <%= @lesson.title %>
 <% end %>
+
 <%= link_to 'Courses', courses_path %>
 \/
 <%= link_to course_path(@lesson.course) do %>
@@ -18,12 +19,22 @@
   <div class="fa fa-check-square"></div>
   <%= @lesson.title %>
 <% end %>
+
 <p></p>
+
 <div class="row">
   <div class="col-lg-8">
     <%= render 'lessons/lesson', lesson: @lesson %>
+    <%= image_tag @lesson.video_thumbnail %>
+    
+    <!-- Corrected <video> tag -->
+    <video controls="true" poster="<%= url_for @lesson.video_thumbnail %>" width="100%" preload="metadata">
+      <source src="<%= rails_blob_url(@lesson.video) %>" type="<%= @lesson.video.content_type %>"></source>
+    </video>
+    
     <p></p>
   </div>
+  
   <div class="col-lg-4">
     <ul class="list-group mb-3">
       <li class="list-group-item">
@@ -35,6 +46,7 @@
         <div class="fa fa-spinner"></div>
         <%= number_to_percentage(@course.progress(current_user), precision: 0) %>
       </li>
+      
       <% @lessons.each do |lesson| %>
         <% if @lesson.present? && lesson == @lesson %>
           <li class="list-group-item list-group-item-success">
