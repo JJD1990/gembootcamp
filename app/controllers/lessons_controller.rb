@@ -1,5 +1,5 @@
 class LessonsController < ApplicationController
-  before_action :set_lesson, only: [:show, :edit, :update, :destroy]
+  before_action :set_lesson, only: [:show, :edit, :update, :destroy, :delete_video]
 
   def sort
     @course = Course.friendly.find(params[:course_id])
@@ -18,7 +18,9 @@ class LessonsController < ApplicationController
   def show
     authorize @lesson
     current_user.view_lesson(@lesson)
+    @course = Course.friendly.find(params[:course_id])
     @lessons = @course.lessons.rank(:row_order)
+    render 'show', locals: { course: @course, lesson: @lesson }
   end
 
   # GET /lessons/new
@@ -72,6 +74,13 @@ class LessonsController < ApplicationController
       format.html { redirect_to course_path(@course), notice: "Lesson was successfully destroyed." }
       format.json { head :no_content }
     end
+  end
+
+  def delete_video 
+    authorize @lesson, :edit?
+    @lesson.video.purge 
+    @lesson.video_thumbnail.purge 
+    redirect_to edit_course_lesson_path(@course, @lesson), notice: "Video was successfully destroyed."
   end
 
   private

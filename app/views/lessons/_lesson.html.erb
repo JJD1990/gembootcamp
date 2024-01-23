@@ -9,6 +9,20 @@
   </div>
   <% if policy(lesson).show? %>
     <div class="card-body">
+      <% if @lesson.video_thumbnail.present? && !@lesson.video.attached? %>
+        <%= image_tag @lesson.video_thumbnail %>  
+      <% end %>
+      <p></p>
+      <% if @lesson.video.attached? %>
+          <video controls width="100%" preload="metadata">
+            <source src="<%= rails_blob_url(@lesson.video) %>" type="<%= @lesson.video.content_type %>">
+          </video>
+          <!-- VIDEO-JS VIDEO -->
+          <%# content_tag :video, '', id: 'my-video' do %>
+            <%# tag :source, src: url_for(@lesson.video), type: @lesson.video.content_type %>
+          <%# end %>
+      <% end %>
+      
       <%= lesson.content %>
     </div>
   <% end %>

@@ -20,3 +20,7 @@
     background-color: black;
   }
   
+  /* //simple_form input for rich_text_area */
+  trix-editor.form-control {
+      height: auto;
+    }

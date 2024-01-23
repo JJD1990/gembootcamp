@@ -12,11 +12,8 @@
     <div class="row"></div>
     <%= @course.avatar.filename %>
     <div class="row">
-    <%= f.label :description %>
-    </div>
-    <%= f.rich_text_area :description %>
-    <small>
-  <%= f.error :description, class: 'text-danger' %>
+    <%= f.input :description, as: :rich_text_area %>
+    
 </small>
     <%= f.input :short_description %>
     <%= f.input :language, collection: ["English", "French", "Spanish"] %>

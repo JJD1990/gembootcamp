@@ -1,4 +1,6 @@
 fileignoreconfig:
 - filename: config/storage.yml
   checksum: 2ec3e416e9edc5c96d13fa4ef881bb3ebe6916aec00efc60597548eb78894e5b
+- filename: yarn.lock
+  checksum: f2a27e88bf3d2489447e31a46e0320fb9444e1bae14ad638561bdefaecbc314b
 version: "1.0"

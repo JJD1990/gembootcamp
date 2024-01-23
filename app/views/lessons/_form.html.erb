@@ -5,11 +5,16 @@
 
   <div class="form-inputs">
     <%= f.input :title, input_html: {autocomplete: 'off'} %>
-    <%= f.label :content %>
-    <%= f.rich_text_area :content %>
-    <%= f.error :content, class: 'text-danger' %>
+    <%= f.input :content, as: :rich_text_area %>
     <%= f.input :video %>
+    <% if @lesson.video.attached? %>
+      <%= @lesson.video.filename %>
+      <%= link_to "Remove video & thumbnail", delete_video_course_lesson_path(@course, @lesson), method: :delete, data: { confirm: 'Are you sure?' } %>
+    <% end %>
     <%= f.input :video_thumbnail %>
+    <% if @lesson.video_thumbnail.attached? %>
+      <%= @lesson.video_thumbnail.filename %>
+    <% end %>
     
     <%# f.association :course %>
     <%# f.input :course_id, input_html: {value: @lesson.course_id || params[:course_id]}, as: :hidden %>
