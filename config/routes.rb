@@ -12,6 +12,7 @@ Rails.application.routes.draw do
       patch :unapprove
     end
     resources :lessons do
+      resources :comments, except: [:index]
       put :sort
       member do
         delete :delete_video
@@ -30,6 +31,8 @@ Rails.application.routes.draw do
       get 'course_popularity'
       get 'money_makers'
     end
+
+    resources :youtube, only: :show
 
   # get 'static_pages/privacy_policy'
   get 'privacy_policy', to: 'home#privacy_policy'

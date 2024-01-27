@@ -20,8 +20,15 @@ class LessonsController < ApplicationController
     current_user.view_lesson(@lesson)
     @course = Course.friendly.find(params[:course_id])
     @lessons = @course.lessons.rank(:row_order)
+  
+    # Initialize these before rendering the view
+    @comment = Comment.new
+    @comments = @lesson.comments
+  
+    # Now render the view with all variables set
     render 'show', locals: { course: @course, lesson: @lesson }
   end
+  
 
   # GET /lessons/new
   def new

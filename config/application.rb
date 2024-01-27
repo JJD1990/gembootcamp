@@ -17,6 +17,9 @@ module Rubygembootcamp
       end
     end
     
+    config.to_prepare do
+      ActionText::ContentHelper.allowed_tags << "iframe"
+    end
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files

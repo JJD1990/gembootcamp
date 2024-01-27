@@ -3,6 +3,7 @@ class Lesson < ApplicationRecord
   ranks :row_order, :with_same => :course_id
   belongs_to :course, counter_cache: true
   has_many :user_lessons, dependent: :destroy
+  has_many :comments, dependent: :nullify
   # Course.find_each { |course| Course.reset_counters(course.id, :lessons) } to reset cache_counter
   validates :title, :content, :course, presence: true
   validates :title, length: { :maximum => 50 }

@@ -53,3 +53,14 @@
     </ul>
   </div>
 </div>
+
+<h2>All comments <%= @comments.present? ? @comments.count : "No comments" %></h2>
+
+<% @comments.each do |comment| %>
+  <%= render 'lessons/comments/comment', comment: comment %>
+  <p></p>
+  <hr>
+<% end %>
+
+<h3>New comment:</h3>
+<%= render 'lessons/comments/form' %>

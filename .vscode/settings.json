@@ -1,0 +1,13 @@
+{
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 5432,
+            "driver": "PostgreSQL",
+            "name": "rubygembootcamp_development ",
+            "database": "rubygembootcamp_development",
+            "username": "jackdouglas"
+        }
+    ]
+}

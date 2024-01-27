@@ -6,7 +6,7 @@
         <%= link_to enrollment.course, course_path(enrollment.course) %>
     </div>
     <div class="card-body">
-       <b class="text-warning fa fa-star"> <%= enrollment.rating %></b>
+       <p class="text-warning fa fa-star"> <%= enrollment.rating %></p>
       <small class="fa fa-comment"><%= enrollment.review %></small>  
     </div>
     <% if current_user %>
