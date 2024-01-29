@@ -4,7 +4,7 @@ fileignoreconfig:
 - filename: config/storage.yml
   checksum: 2ec3e416e9edc5c96d13fa4ef881bb3ebe6916aec00efc60597548eb78894e5b
 - filename: db/schema.rb
-  checksum: 8dcc586fa12190896ab2328bc2900a3fb3c77fee198637d263cbf724516eac2a
+  checksum: f7ef650d5a9690fafda3444998dabf41cf877aa6776539a8f83493c44db1b0ce
 - filename: yarn.lock
   checksum: f2a27e88bf3d2489447e31a46e0320fb9444e1bae14ad638561bdefaecbc314b
 version: "1.0"

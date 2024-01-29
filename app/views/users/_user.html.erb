@@ -45,7 +45,14 @@
     Courses Created:
     <%= user.courses_count %> |
      Enrollments:
-    <%= user.enrollments_count %>
+    <%= user.enrollments_count %> |
+      <i class="fa fa-comment"></i>
+      Comments:
+      <%= user.comments_count %>
+      <div class="row"> 
+        <i class="fa fa-eye"></i> 
+        Lessons viewed: <%= user.user_lessons_count %>
+      </div>
   </div>
    <div class="card-footer">
     e-mail confirmed:

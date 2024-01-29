@@ -23,7 +23,7 @@ class LessonsController < ApplicationController
   
     # Initialize these before rendering the view
     @comment = Comment.new
-    @comments = @lesson.comments
+    @comments = @lesson.comments.order(created_at: :desc)
   
     # Now render the view with all variables set
     render 'show', locals: { course: @course, lesson: @lesson }

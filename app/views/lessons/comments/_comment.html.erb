@@ -3,7 +3,14 @@
     <%= comment.content %>
   </div>
   <div class="card-footer">
-    <%= comment.user %>
-    <%= comment.created_at %>
+  By: 
+    <%= link_to comment.user, user_path(comment.user) %>
+    <%= comment.created_at.strftime('%d-%m-%Y %H:%M') %> 
+      (<%= time_ago_in_words(comment.created_at) %>)
+      <% if policy(comment).destroy? %>
+       <%= link_to [@course, @lesson, comment], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger float-right' do %>
+        <i class="fa fa-trash"></i>
+      <% end %>
+  <% end %>
   </div>
 </div>

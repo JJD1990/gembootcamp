@@ -39,6 +39,8 @@ Corsego | All Users
       <th><%= 'last_sign_in_ip'.humanize %></th>
       <th><%= 'courses_count'.humanize %></th>
       <th><%= 'enrollments_count'.humanize %></th>
+      <th><%= 'comments_count'.humanize %></th>
+      <th><%= 'user_lessons_count'.humanize %></th>
       <th>e-mail Confirmed?</th>
       <th>Roles</th>
     </tr>
@@ -60,6 +62,8 @@ Corsego | All Users
         <td><%= user.last_sign_in_ip %></td>
         <td><%= user.courses_count %></td>
         <td><%= user.enrollments_count %></td>
+        <td><%= user.comments_count %></td>
+        <td><%= user.user_lessons_count %></td>
         <td><% if user.confirmed_at.present? %>
           <div class="badge badge-success">Yes</div>
             <% else %>

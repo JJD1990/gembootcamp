@@ -25,8 +25,24 @@
 <div class="row">
   <div class="col-lg-8">
     <%= render 'lessons/lesson', lesson: @lesson %>
+    <h4>
+    <i class="fa fa-comment"></i>
+    All comments: <%= @comments.present? ? @lesson.comments_count : "No comments" %>
+  </h4>
+  <div class="card">
+    <div class="card-header">
+      New comment
+    </div>
+    <div class="card-body">
+      <%= render 'lessons/comments/form' %>
+    </div>
   </div>
-  
+  <p></p>
+  <% @comments.each do |comment| %>
+    <%= render 'lessons/comments/comment', comment: comment %>
+    <p></p>
+  <% end %>
+  </div>
   <div class="col-lg-4">
     <ul class="list-group mb-3">
       <li class="list-group-item">
@@ -53,14 +69,3 @@
     </ul>
   </div>
 </div>
-
-<h2>All comments <%= @comments.present? ? @comments.count : "No comments" %></h2>
-
-<% @comments.each do |comment| %>
-  <%= render 'lessons/comments/comment', comment: comment %>
-  <p></p>
-  <hr>
-<% end %>
-
-<h3>New comment:</h3>
-<%= render 'lessons/comments/form' %>
