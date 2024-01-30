@@ -1,6 +1,20 @@
 fileignoreconfig:
+- filename: app/controllers/users/registrations_controller.rb
+  checksum: b5e4ef9893dcede523a30d3c00f422034452960281c1fd8811c9e3f55f755c8b
 - filename: app/javascript/youtube.js
   checksum: 1e5402fb383a99191c60b6f450e25c4fc142fd2315cdd7a88727acb26bd2984d
+- filename: app/views/devise/mailer/password_change.html.erb
+  checksum: 59f946bbf1ac52001cd5d23982dad493a30b8ded09765cdd1e1ee4434ec92e84
+- filename: app/views/devise/mailer/reset_password_instructions.html.erb
+  checksum: 1115b1ec3f5e2b79c8a3a0ef24010e7f0e3603e8114986a5acc1cc9823b785ba
+- filename: app/views/devise/passwords/edit.html.erb
+  checksum: 4ff626902a15bac0860847f718f596c3e8d29cd52e25a7f56a45bdd327d19edd
+- filename: app/views/devise/passwords/new.html.erb
+  checksum: 4dd5d0b2b6f6ecc3d0bd010ed889b637082b55eb94af65adc2cdc0e5bc8e4f3b
+- filename: app/views/devise/shared/_links.html.erb
+  checksum: 4646e71d00ad623f924ad7832ad45cd69bb6252e2fdf79f2150ea55b460b0770
+- filename: config/initializers/recaptcha.rb
+  checksum: f7854bfdfa35194ebe8f5c598db07f3a6c08d059122c70b0450562fc1f1605e7
 - filename: config/storage.yml
   checksum: 2ec3e416e9edc5c96d13fa4ef881bb3ebe6916aec00efc60597548eb78894e5b
 - filename: db/schema.rb

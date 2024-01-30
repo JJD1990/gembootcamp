@@ -3,7 +3,7 @@ Rails.application.routes.draw do
     get :my_students, on: :collection
   end
 
-  devise_for :users
+  devise_for :users, :controllers => { registrations: 'users/registrations'}
   resources :courses do
     get :purchased, :pending_review, :unapproved, :created, on: :collection
     member do

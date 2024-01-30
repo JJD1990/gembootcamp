@@ -72,3 +72,5 @@ gem "aws-sdk-s3", require: false
 gem 'dotenv-rails', groups: [:development, :test]
 gem 'active_storage_validations'
 gem 'image_processing'
+
+gem "recaptcha", "~> 5.16"
