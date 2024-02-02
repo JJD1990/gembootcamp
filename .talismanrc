@@ -22,5 +22,5 @@ fileignoreconfig:
 - filename: db/schema.rb
   checksum: f7ef650d5a9690fafda3444998dabf41cf877aa6776539a8f83493c44db1b0ce
 - filename: yarn.lock
-  checksum: f2a27e88bf3d2489447e31a46e0320fb9444e1bae14ad638561bdefaecbc314b
+  checksum: b798dc505216f7d65c04e2125d1bb69e41ff524234004becc8eb7a27f1e703cb
 version: "1.0"
