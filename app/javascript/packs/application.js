@@ -67,3 +67,7 @@ $(document).on('turbolinks:load', function(){
     videoPlayer.addClass('vjs-big-play-centered')
   });
 
+  $("video").on("contextmenu", function() {
+    return false;
+  });  
+

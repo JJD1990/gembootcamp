@@ -1,13 +1,16 @@
 <div class="card m-3">
-    <div class="card-header fa fa-user">
+    <div class="card-header">
+       <p class="fa fa-user"></p>
         <%= link_to enrollment.user.username, user_path(enrollment.user) %> | 
         Updated 
         <%= time_ago_in_words(enrollment.updated_at) %> ago |
         <%= link_to enrollment.course, course_path(enrollment.course) %>
     </div>
     <div class="card-body">
-       <p class="text-warning fa fa-star"> <%= enrollment.rating %></p>
-      <small class="fa fa-comment"><%= enrollment.review %></small>  
+       <p class="text-warning fa fa-star"></p>
+       <%= enrollment.rating %>
+      <small class="fa fa-comment"></small>
+      <%= enrollment.review %>  
     </div>
     <% if current_user %>
     <div class="card-footer">
