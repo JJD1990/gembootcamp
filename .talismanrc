@@ -13,6 +13,8 @@ fileignoreconfig:
   checksum: 4dd5d0b2b6f6ecc3d0bd010ed889b637082b55eb94af65adc2cdc0e5bc8e4f3b
 - filename: app/views/devise/shared/_links.html.erb
   checksum: 4646e71d00ad623f924ad7832ad45cd69bb6252e2fdf79f2150ea55b460b0770
+- filename: app/views/layouts/application.html.erb
+  checksum: 3754162667461a9ce09f5a0448b0a1a01a1254431a1ab51b794ca7296d2f32dc
 - filename: config/credentials.yml.enc
   checksum: 5f8a201f42e20bb830b0d0590fa432a096c951476acdecc4ed015a52361a5013
 - filename: config/initializers/recaptcha.rb

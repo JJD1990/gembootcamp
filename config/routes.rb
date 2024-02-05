@@ -3,6 +3,8 @@ Rails.application.routes.draw do
     get :my_students, on: :collection
   end
 
+  get 'privacy-policy', to: 'home#privacy_policy', as: 'privacy_policy'
+
   devise_for :users, :controllers => { registrations: 'users/registrations'}
   resources :courses do
     get :purchased, :pending_review, :unapproved, :created, on: :collection
