@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   get 'privacy-policy', to: 'home#privacy_policy', as: 'privacy_policy'
 
-  devise_for :users, :controllers => { registrations: 'users/registrations'}
+  devise_for :users, :controllers => { registrations: 'users/registrations', omniauth_callbacks: 'users/omniauth_callbacks'}
   resources :courses do
     get :purchased, :pending_review, :unapproved, :created, on: :collection
     member do
