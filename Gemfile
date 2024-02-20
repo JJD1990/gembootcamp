@@ -76,3 +76,4 @@ gem 'image_processing'
 gem "recaptcha", "~> 5.16"
 gem 'omniauth-google-oauth2' #sign in with google
 gem 'omniauth-rails_csrf_protection'
+gem 'omniauth-github', github: 'omniauth/omniauth-github', branch: 'master'

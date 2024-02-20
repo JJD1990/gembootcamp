@@ -9,6 +9,22 @@
     <%= link_to user.email, user_path(user) %>
   </div>
   <div class="card-footer">
+  <% if user == current_user && user.uid.nil? %>
+    <%= link_to user_google_oauth2_omniauth_authorize_path, class: 'btn btn-outline-primary btn-sm' do %>
+      <i class="fab fa-google"></i> Sync with Google
+    <% end %>
+    <p></p>
+  <% end %>
+  <% if user.image? %>
+    <div class="row">
+      <%= image_tag user.image, size: '40x40', alt: user.email, class: 'rounded-circle' %>
+    </div>
+  <% end %>
+  <div class="row">
+    <%= @user.name %>
+  </div>
+</div>
+  <div class="card-footer">
     Signed up
     <%= time_ago_in_words(user.created_at) %>
     ago

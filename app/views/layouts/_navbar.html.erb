@@ -128,6 +128,11 @@
       <ul class="navbar-nav me-right"> 
         <li class="nav-item dropdown">
           <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" id="navbarDropdown" role="button">
+            <% if current_user.image? %>
+              <%= image_tag current_user.image, size: '30x30', alt: current_user.email, class: 'rounded-circle' %>
+            <% else %>
+              <i class="fa fa-user"></i>
+            <% end %>
             <b>
               <%= current_user.email %>
             </b>
