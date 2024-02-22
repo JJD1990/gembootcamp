@@ -3,6 +3,8 @@ Rails.application.routes.draw do
     get :my_students, on: :collection
   end
 
+  root 'home#index'
+
   get 'privacy-policy', to: 'home#privacy_policy', as: 'privacy_policy'
 
   devise_for :users, :controllers => { registrations: 'users/registrations', omniauth_callbacks: 'users/omniauth_callbacks'}
@@ -24,7 +26,6 @@ Rails.application.routes.draw do
   end  
 
   resources :users, only: [:index, :edit, :show, :update]
-  root 'home#index'
     get 'activity', to: 'home#activity'
     get 'analytics', to: 'home#analytics'
     namespace :charts do
